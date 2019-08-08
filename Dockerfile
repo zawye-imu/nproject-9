@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY ./target/classes/com /tmp/com
-WORKDIR /tmp
-ENTRYPOINT ["java", "com.napier.sem.App"]
+COPY ./target/project-0.1.0.2-jar-with-dependencies.jar /
+WORKDIR /
+ENTRYPOINT ["java", "-jar", "project-0.1.0.2-jar-with-dependencies.jar"]
