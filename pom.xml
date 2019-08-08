@@ -20,7 +20,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.napier.sem.App</mainClass>
+                            <mainClass>com.project.group9.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -41,4 +41,3 @@
     </build>
 
 </project>
-
