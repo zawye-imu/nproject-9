@@ -1,5 +1,5 @@
 # Project-9
-DevOps group project.
+DevOps group project (Group 9).
 
 | Members | Student ID |
 | --- | --- |
