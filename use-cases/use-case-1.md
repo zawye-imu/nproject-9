@@ -1,4 +1,4 @@
-# USE CASE: 4 Produce a Report on All the Countries in the World, Continent and Region Organised by Largest Population to Smallest
+# USE CASE: 1 Produce a Report on All the Countries in the World, Continent and Region Organised by Largest Population to Smallest
 
 ## CHARACTERISTIC INFORMATION
 
