@@ -4,8 +4,8 @@ actor HR as "User"
 rectangle Database
 
 rectangle "World Population \nSystem" {
-    usecase UC4 as "Get population
-    by specific living \narea"
+    usecase UC4 as "Get population data
+    by specific living \narea according to usecases"
 
     usecase UCa as "Print population \ndata"
 
