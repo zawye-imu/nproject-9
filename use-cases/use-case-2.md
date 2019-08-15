@@ -1,5 +1,5 @@
 # USE CASE: 2 Produce a Report on All The Cities in the World, Continent, Region, Country and District Organised by Largest Population to Smallest
-As a user I want to view all the cities in the world, continent, region, country and district organised by largest population to smallest.
+
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
