@@ -16,6 +16,9 @@ public class App {
         // Display results
         a.displaycity(wo);
 
+        //Sorting city population from largest to smallest
+        a.cityP();
+
         // Disconnect from database
         a.disconnect();
     }
@@ -121,10 +124,49 @@ public class App {
         }
     }
 
+    public void cityP()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM city ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            //testing
+            System.out.println(rset);
+
+
+            // Return new employee if valid.
+            // Check one is returned
+            System.out.println("+++Cities in the world from largest to smallest population+++");
+            while (rset.next())
+            {
+                int ID=rset.getInt("ID");
+                String Name=rset.getString("Name");
+                int Population=rset.getInt("Population");
+                System.out.println(" "+Name+"--------------------"+Population);
+
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            System.out.println("Exception");
+        }
+    }
+
+
     public void displaycity(World wo)
     {
         if (wo != null)
         {
+
             System.out.println(
                     wo.ID + " "
                             + wo.Name + " "
