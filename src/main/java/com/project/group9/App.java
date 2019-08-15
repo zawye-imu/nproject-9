@@ -11,6 +11,10 @@ public class App {
 
         // Connect to database
         a.connect();
+        // Get Employee
+        World wo = a.getcity(1);
+        // Display results
+        a.displaycity(wo);
 
         // Disconnect from database
         a.disconnect();
@@ -78,6 +82,55 @@ public class App {
             {
                 System.out.println("Error closing connection to database");
             }
+        }
+    }
+    public World getcity(int ID)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT ID, Name, CountryCode, District, Population "
+                            + "FROM city "
+                            + "WHERE ID = " + ID;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            if (rset.next())
+            {
+                World wo = new World();
+                wo.ID= rset.getInt("ID");
+                wo.Name = rset.getString("Name");
+                wo.CountryCode = rset.getString("CountryCode");
+                wo.District = rset.getString("District");
+                wo.Population = rset.getInt("Population");
+
+                return wo;
+            }
+            else
+                return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
+
+    public void displaycity(World wo)
+    {
+        if (wo != null)
+        {
+            System.out.println(
+                    wo.ID + " "
+                            + wo.Name + " "
+                            + wo.CountryCode + "\n"
+                            + wo.District + "\n"
+                            + wo.Population + "\n");
         }
     }
 }
