@@ -36,8 +36,8 @@ A request for cities information is sent to user.
 
 ## MAIN SUCCESS SCENARIO
 
-1. User request cities information in the world, continent and region.
-2. User view all the cities in the world, continent and region organised by largest population to smallest.
+1. User request cities information in the world, continent and region, country, district.
+2. User view all the cities in the world, continent, region, country and district organised by largest population to smallest.
 
 ## SUB-VARIATIONS
 
