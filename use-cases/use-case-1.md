@@ -1,4 +1,4 @@
-# USE CASE: 1 Produce a Report on All the Countries in the World, Continent and Region Organised by Largest Population to Smallest
+# USE CASE: 1 Produce and Display a Report on All the Countries in the World, Continent and Region Organised by Largest Population to Smallest
 
 ## CHARACTERISTIC INFORMATION
 
@@ -36,7 +36,7 @@ A request for countries information is sent to user.
 
 ## MAIN SUCCESS SCENARIO
 
-1. User request countries information in the world, continent and region.
+1. User requests countries information in the world, continent and region.
 2. User view all the countries in the world, continent and region organised by largest population to smallest.
 
 ## SUB-VARIATIONS
