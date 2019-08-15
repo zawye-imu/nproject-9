@@ -20,7 +20,7 @@ We know the role.  Database contains countries data.
 
 ### Success End Condition
 
-A report is available for user to view the populated cities data.
+A report is available for user to view N populated cities data.
 
 ### Failed End Condition
 
