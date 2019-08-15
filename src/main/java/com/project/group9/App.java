@@ -1,6 +1,8 @@
 package com.project.group9;
 //These following section will include libraries for the app
+import javax.swing.*;
 import java.sql.*;
+import java.util.Scanner;
 
 public class App {
 
@@ -8,6 +10,9 @@ public class App {
     {
         // Create new Application
         App a = new App();
+
+        //test
+        System.out.println("This is new");
 
         // Connect to database
         a.connect();
@@ -18,6 +23,30 @@ public class App {
 
         //Sorting city population from largest to smallest
         a.cityP();
+
+        //all the countries sorted by population
+        a.countryP();
+
+
+
+
+        //Getting user inputs
+        Scanner reader = new Scanner(System.in);
+        a.countryP_input(reader);
+        reader.close();
+
+
+
+
+
+
+
+//        System.out.println("Enter how many populated countries:");
+//        int k = reader.nextInt();
+//        a.cityP_input(k);
+//        //closing
+//        reader.close();
+
 
         // Disconnect from database
         a.disconnect();
@@ -142,12 +171,14 @@ public class App {
             // Return new employee if valid.
             // Check one is returned
             System.out.println("+++Cities in the world from largest to smallest population+++");
-            while (rset.next())
+            int i =0;
+            while (rset.next() && i<5)
             {
                 int ID=rset.getInt("ID");
                 String Name=rset.getString("Name");
                 int Population=rset.getInt("Population");
                 System.out.println(" "+Name+"--------------------"+Population);
+                i++;
 
 
             }
@@ -175,4 +206,136 @@ public class App {
                             + wo.Population + "\n");
         }
     }
+
+
+
+    public void countryP()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM country ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            //testing
+            System.out.println(rset);
+
+
+
+            System.out.println("+++Countries in the world from largest to smallest population+++");
+
+
+            //Delete limitation after the code is finished
+            int i =0;
+
+            while (rset.next() && i<5)
+            {
+                String Code=rset.getString("Code");
+                String Name=rset.getString("Name");
+                int Population=rset.getInt("Population");
+                System.out.println(" "+Name+"------------->"+Population);
+                i++;
+
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get countries details");
+            System.out.println("Exception");
+        }
+    }
+
+    public void countryP_input(Scanner scanner)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM country ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            //testing
+            System.out.println(rset);
+
+
+
+            System.out.println("+++Countries in the world from largest to smallest population+++");
+            //getting user input
+            System.out.println("How many countries?");
+            int n=scanner.nextInt();
+
+            //The i variable will be defined by the user
+            int i=0;
+            while (rset.next() && i<n)
+            {
+                String Code=rset.getString("Code");
+                String Name=rset.getString("Name");
+                int Population=rset.getInt("Population");
+                System.out.println(" "+Name+"------------->"+Population);
+                i++;
+
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get countries details");
+            System.out.println("Exception");
+        }
+    }
+
+
+    public void cityP_input(int n)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM city ORDER BY Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            //testing
+            System.out.println(rset);
+
+
+            // Return new employee if valid.
+            // Check one is returned
+            System.out.println("+++Cities in the world from largest to smallest population+++");
+
+
+            int i =0;
+            while (rset.next() && i<n)
+            {
+                int ID=rset.getInt("ID");
+                String Name=rset.getString("Name");
+                int Population=rset.getInt("Population");
+                System.out.println(" "+Name+"--------------------"+Population);
+                i++;
+
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            System.out.println("Exception");
+        }
+    }
+
+
+
 }
