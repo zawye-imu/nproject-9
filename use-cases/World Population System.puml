@@ -1,0 +1,16 @@
+@startuml
+actor HR as "User"
+
+rectangle Database
+
+rectangle "World Population \nSystem" {
+    usecase UC4 as "Get population
+    by specific living \narea"
+
+    usecase UCa as "Print population \ndata"
+
+    HR - UC4
+    UC4 ..> UCa : include
+    UC4 - Database
+}
+@enduml
