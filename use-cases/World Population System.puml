@@ -1,15 +1,15 @@
 @startuml
-actor HR as "User"
+actor Statistician as "User"
 
 rectangle Database
 
 rectangle "World Population \nSystem" {
     usecase UC4 as "Get population data
-    by specific living \narea according to usecases"
+    by specific living \narea according to usecases 1 to 10"
 
     usecase UCa as "Print population \ndata"
 
-    HR - UC4
+    Statistician - UC4
     UC4 ..> UCa : include
     UC4 - Database
 }
