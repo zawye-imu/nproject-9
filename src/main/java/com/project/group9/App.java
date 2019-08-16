@@ -332,7 +332,7 @@ public class App {
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
-            System.out.println("Exception");
+            System.out.println("Exception:"+e);
         }
     }
 
