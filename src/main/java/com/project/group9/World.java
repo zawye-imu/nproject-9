@@ -1,5 +1,6 @@
 package com.project.group9;
 
+
 public class World {
     /**
      * City ID
@@ -25,4 +26,5 @@ public class World {
      * Population
      */
     public int Population;
+
 }
