@@ -1,13 +1,26 @@
 package com.project.group9;
 //These following section will include libraries for the app
 import javax.swing.*;
+import javax.swing.plaf.IconUIResource;
+import java.awt.*;
 import java.sql.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Scanner;
 import java.io.*;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+
+import java.util.ArrayList;
+
 public class App {
+
+    static App a;
+
+    @BeforeAll
 
     public static void main(String[] args)
     {
@@ -72,6 +85,7 @@ public class App {
     /**
      * Connect to the MySQL database.
      */
+
     public void connect()
     {
         try
@@ -128,6 +142,7 @@ public class App {
             }
         }
     }
+
     public World getcity(int ID)
     {
         try
