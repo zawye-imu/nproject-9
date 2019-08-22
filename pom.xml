@@ -62,7 +62,7 @@
                     <finalName>nproject-9</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>com.project.group9.test</mainClass>
+                            <mainClass>com.project.group9.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

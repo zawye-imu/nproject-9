@@ -17,6 +17,9 @@ install:
 before_script:
   - mvn clean
 
+
+
+
 jobs:
   include:
     - stage: unit tests
@@ -25,7 +28,7 @@ jobs:
       script: mvn test -Dtest=com.project.group9.test
     - stage: integration tests
       jdk: oraclejdk11
-      script: mvn test -Dtest=com.project.group9.AppintegrationTest
+      script: mvn test -Dtest=com.project.group9.AppIntegrationTest
     - stage: deploy
       install: skip
       jdk: oraclejdk11
