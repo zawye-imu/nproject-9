@@ -17,5 +17,11 @@ public class test
     {
         app = new App();
     }
+    @Test
+    void TestCityP()
+    {
+        app.cityP();
+    }
+
     
 }
