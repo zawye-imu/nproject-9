@@ -17,7 +17,7 @@ install:
 
 before_script:
   - mvn clean
-  - DfailIfNoTests=false
+
 
 
 

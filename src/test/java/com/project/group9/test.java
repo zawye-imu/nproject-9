@@ -18,9 +18,9 @@ public class test
         app = new App();
     }
     @Test
-    void TestCityP()
+    void TestCalPopulationtoNull()
     {
-        app.cityP();
+        app.calPopulation(null);
     }
 
     
