@@ -17,10 +17,5 @@ public class test
     {
         app = new App();
     }
-
-    @Test
-    void dispalycityNull()
-    {
-        app.displaycity(null);
-    }
+    
 }
