@@ -68,9 +68,38 @@ public class App {
         //cities sorted by region
         a.citiesInRegion();
 
+        //cities in the country sorted by population
+        a.citiesInCountry();
+
+        //cities in each district
+        a.citiesInDistrict();
 
         //capital cities in the world sorted by population
         a.capitalP();
+
+        //capital cities in each continent
+        a.capitalContinent();
+
+        //capital cities in each region
+        a.capitalRegion();
+
+        //Population report for each continent
+        a.calPopulation("Continent");
+        //Population report for each region
+        a.calPopulation("Region");
+        //Population report for each country
+        a.calPopulation("Name");
+
+        //population report for each district
+        a.calPopulation2("District");
+        //Population report for each city
+        a.calPopulation2("Name");
+
+        //getting world population
+        a.worldPop();
+
+
+
 
 
 
@@ -650,6 +679,408 @@ public class App {
             System.out.println("Exception");
         }
     }
+
+
+    public void citiesInCountry()
+    {
+        try
+        {
+            // Execute SQL statement
+            Statement stmt = con.createStatement();
+            //Select distinct country codes of countires
+            String strSelect = "SELECT DISTINCT Code FROM country";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Create an array list
+            ArrayList<String> codes = new ArrayList<String>();
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Cities in each Country ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
+            while (rset.next())
+            {
+                codes.add(rset.getString(1));
+            }
+            //Various country codes
+
+            System.out.println(codes);
+
+            List<String> newList = codes.stream().distinct().collect(Collectors.toList());
+
+            System.out.println(newList);
+
+
+            //Add elements to ArrayList
+
+            Enumeration<String> e = Collections.enumeration(newList);
+            while(e.hasMoreElements())
+            {
+                String ct=e.nextElement();
+                //testing out
+                System.out.println(ct);
+
+                // Execute SQL statement
+                Statement stmt1 = con.createStatement();
+                String strSelect1= "SELECT city.Name,city.Population FROM city INNER JOIN country on city.CountryCode=country.Code WHERE city.CountryCode='"+ct+"'"+"ORDER BY Population DESC";
+                ResultSet rset1 = stmt1.executeQuery(strSelect1);
+
+                //getting country name from the country code
+                Statement stmt2 = con.createStatement();
+                String strSelect2="SELECT Name FROM country WHERE code='"+ct+"'";
+                stmt2.setMaxRows(1);
+                ResultSet rset2=stmt2.executeQuery(strSelect2);
+
+                while (rset2.next()) {
+                    System.out.println("+++Cities in " + rset2.getString(1) + "+++");
+                }
+
+                while (rset1.next())
+                {
+
+                    String Name=rset1.getString("Name");
+                    Integer Population=rset1.getInt("Population");
+                    System.out.println(" "+Name+"---->"+Population);
+
+
+
+                }
+                System.out.println("\n\n\n");
+            }
+
+
+
+
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println(e);
+        }
+    }
+
+
+    public void citiesInDistrict()
+    {
+        try
+        {
+            // Execute SQL statement
+            Statement stmt = con.createStatement();
+            //Select distinct country codes of countires
+            String strSelect = "SELECT DISTINCT District FROM city";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Create an array list
+            ArrayList<String> District = new ArrayList<String>();
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Cities in each District ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
+            while (rset.next())
+            {
+                District.add(rset.getString(1));
+            }
+            //Various country codes
+
+            System.out.println(District);
+
+            List<String> newList = District.stream().distinct().collect(Collectors.toList());
+
+            System.out.println(newList);
+
+
+            //Add elements to ArrayList
+
+            Enumeration<String> e = Collections.enumeration(newList);
+            while(e.hasMoreElements())
+            {
+                String ct=e.nextElement();
+                //testing out
+                System.out.println(ct);
+
+                // Execute SQL statement
+                Statement stmt1 = con.createStatement();
+                String strSelect1= "SELECT city.Name,city.Population FROM city WHERE District='"+ct+"'"+"ORDER BY Population DESC";
+                ResultSet rset1 = stmt1.executeQuery(strSelect1);
+
+
+
+
+                System.out.println("+++Cities in "+ ct +"+++");
+
+
+                while (rset1.next())
+                {
+
+                    String Name=rset1.getString("Name");
+                    Integer Population=rset1.getInt("Population");
+                    System.out.println(" "+Name+"---->"+Population);
+
+
+
+                }
+                System.out.println("\n\n\n");
+            }
+
+
+
+
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println(e);
+        }
+    }
+
+
+
+    //capital cities in continent
+    public void capitalContinent()
+    {
+        try
+        {
+
+            // Create an array list of continents
+            ArrayList<String> continent = new ArrayList<String>();
+
+            //Add elements to ArrayList
+            continent.add("North America");
+            continent.add("Asia");
+            continent.add("Europe");
+            continent.add("Africa");
+            continent.add("Oceania");
+            continent.add("Antarctica");
+            continent.add("South America");
+            Enumeration<String> e = Collections.enumeration(continent);
+
+
+
+            System.out.println("++++++++++++++++++++++++++++++ Capital cities in each continent +++++++++++++++++++++++++++++");
+
+
+
+
+            while (e.hasMoreElements()) {
+                String ct=e.nextElement();
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect = "SELECT city.Name,city.Population,country.Capital,city.ID FROM country INNER JOIN city on country.Capital=city.ID WHERE country.continent='"+ct+"'ORDER BY city.Population DESC";
+                // Execute SQL statement
+                ResultSet rset = stmt.executeQuery(strSelect);
+                System.out.println("Capital cities in  "+ct);
+                while (rset.next()) {
+
+                    String Name = rset.getString("Name");
+                    int Population = rset.getInt("Population");
+                    System.out.println(" " + Name + "-------------------->" + Population);
+
+
+                }
+                System.out.println("\n\n\n");
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get details");
+            System.out.println("Exception");
+        }
+    }
+
+    //capital cities in Region
+    public void capitalRegion()
+    {
+        try
+        {
+
+            Statement stmt1 = con.createStatement();
+            String strSelect1 = "SELECT DISTINCT Region FROM country";
+            ResultSet rset1 = stmt1.executeQuery(strSelect1);
+            ArrayList<String> region = new ArrayList<String>();
+            while (rset1.next())
+            {
+                region.add(rset1.getString(1));
+            }
+            System.out.println(region);
+            List<String> newList = region.stream().distinct().collect(Collectors.toList());
+            System.out.println(newList);
+            Enumeration<String> e = Collections.enumeration(newList);
+
+
+
+
+            System.out.println("++++++++++++++++++++++++++++++ Capital cities in each region +++++++++++++++++++++++++++++");
+
+            while (e.hasMoreElements()) {
+                String ct=e.nextElement();
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect = "SELECT city.Name,city.Population,country.Capital,city.ID FROM country INNER JOIN city on country.Capital=city.ID WHERE country.Region='"+ct+"'ORDER BY city.Population DESC";
+                // Execute SQL statement
+                ResultSet rset = stmt.executeQuery(strSelect);
+                System.out.println("Capital cities in  "+ct);
+                while (rset.next()) {
+
+                    String Name = rset.getString("Name");
+                    int Population = rset.getInt("Population");
+                    System.out.println(" " + Name + "-------------------->" + Population);
+
+
+                }
+                System.out.println("\n\n\n");
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get details");
+            System.out.println("Exception");
+        }
+    }
+
+
+    public void calPopulation(String s)
+    {
+        try
+        {
+            Statement stmt1 = con.createStatement();
+            String strSelect1 = "SELECT DISTINCT "+s+" FROM country";
+            ResultSet rset1 = stmt1.executeQuery(strSelect1);
+            ArrayList<String> ls = new ArrayList<String>();
+            while (rset1.next())
+            {
+                ls.add(rset1.getString(1));
+            }
+            System.out.println(ls);
+            List<String> newList = ls.stream().distinct().collect(Collectors.toList());
+            System.out.println(newList);
+            Enumeration<String> e = Collections.enumeration(newList);
+
+            System.out.println("\n\n++++++++++++++++++++++++++++++ Population in countries' "+s+"s +++++++++++++++++++++++++++++\n");
+
+            while (e.hasMoreElements()) {
+                String ct=e.nextElement();
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect = "SELECT Population from country where "+s+"='"+ct+"'";
+                // Execute SQL statement
+                ResultSet rset = stmt.executeQuery(strSelect);
+                System.out.println("\n\nPopulation in "+ct+"\n");
+                float pop=0;
+                while (rset.next()) {
+
+                    pop=pop+rset.getInt(1);
+
+
+                }
+                System.out.println("The population in "+ct+" is "+pop);
+
+
+
+                //getting cities in this s
+
+                Statement stmt2 = con.createStatement();
+                // Create string for SQL statement
+                String strSelect2 = "SELECT city.Name,city.Population FROM city INNER JOIN country on city.CountryCode=country.Code WHERE country."+s+"='"+ct+"'"+"ORDER BY Population DESC";
+                // Execute SQL statement
+                ResultSet rset2 = stmt.executeQuery(strSelect2);
+
+                //Getting the population of all the cities
+                float cpop=0;
+                while (rset2.next())
+                {
+                    cpop=cpop+rset2.getInt(2);
+                }
+                System.out.println("Population in cities of "+ct+" ="+cpop);
+                float npop=pop-cpop;
+                System.out.println("People not living in cities of "+ct+" ="+npop);
+
+
+
+
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get details");
+            System.out.println("Exception");
+        }
+
+    }
+    public void worldPop()
+    {
+        try {
+            //getting population fof the world
+            Statement stmt4 = con.createStatement();
+            String strSelect4 = "SELECT Population from country";
+            ResultSet rset4 = stmt4.executeQuery(strSelect4);
+            float wpop = 0;
+            while (rset4.next()) {
+                wpop = wpop + rset4.getInt(1);
+            }
+            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++Population of the world+++++++++++++++++++++++++++++++++++++++++++++++++");
+            System.out.println("\nThe population of the world is " + wpop);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error in getting world population\n"+"Error:"+e);
+        }
+    }
+
+    //calculating the population of city and district
+    public void calPopulation2(String s)
+    {
+        try
+        {
+            Statement stmt1 = con.createStatement();
+            String strSelect1 = "SELECT DISTINCT "+s+" FROM city";
+            ResultSet rset1 = stmt1.executeQuery(strSelect1);
+            ArrayList<String> ls = new ArrayList<String>();
+
+            while (rset1.next())
+            {
+                ls.add(rset1.getString(1));
+            }
+            System.out.println(ls);
+            List<String> newList = ls.stream().distinct().collect(Collectors.toList());
+            System.out.println(newList);
+            Enumeration<String> e = Collections.enumeration(newList);
+
+            System.out.println("\n\n++++++++++++++++++++++++++++++ Population in city"+s+"s +++++++++++++++++++++++++++++\n");
+
+            while (e.hasMoreElements()) {
+                String ct=e.nextElement();
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect = "SELECT Population from city where "+s+"='"+ct+"'";
+                // Execute SQL statement
+                ResultSet rset = stmt.executeQuery(strSelect);
+                System.out.println("\n\nPopulation in "+ct);
+                float pop=0;
+                while (rset.next()) {
+
+                    pop=pop+rset.getInt(1);
+
+            }
+            System.out.println("The population in "+ct+" is "+pop);
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get details");
+            System.out.println("Exception");
+        }
+
+    }
+
+
+
+
 }
 
 
