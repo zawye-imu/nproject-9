@@ -33,8 +33,14 @@ public class App {
 
         // Connect to database
         //a.connect();
-        a.connect("localhost:33060");
-
+        if (args.length < 1)
+        {
+            a.connect("localhost:3306");
+        }
+        else
+        {
+            a.connect(args[0]);
+        }
         // Get Employee
         //World wo = a.getcity(1);
         // Display results
