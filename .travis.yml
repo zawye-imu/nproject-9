@@ -25,7 +25,7 @@ jobs:
       script: mvn test -Dtest=com.project.group9.test
     - stage: integration tests
       jdk: oraclejdk11
-      script: mvn test -Dtest=com.project.group9.AppIntegrationTest
+      script: mvn test -Dtest=com.project.group9.AppintegrationTest
     - stage: deploy
       install: skip
       jdk: oraclejdk11
@@ -40,4 +40,4 @@ stages:
     if: branch = master
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t uuid-repo-token
