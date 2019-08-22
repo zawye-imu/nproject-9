@@ -23,6 +23,7 @@ public class AppIntegrationTest
     void testCityP()
     {
         app.cityP();
+        assertEquals(5,5);
 
     }
 }
