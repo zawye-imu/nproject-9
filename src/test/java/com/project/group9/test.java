@@ -17,10 +17,33 @@ public class test
     {
         app = new App();
     }
-
     @Test
-    void dispalycityNull()
+    void TestCalPopulationtoNull()
     {
-        app.displaycity(null);
+        //Testing for null input
+        app.calPopulation(null);
+
+        //Testing for invalid input
+        app.calPopulation("Invalid");
+
+        //Testing with real input
+        app.calPopulation("Continent");
     }
+    @Test
+    void TestCalPopulation2()
+    {
+        //Testing for null input
+        app.calPopulation2(null);
+
+        //Testing for invalid input
+        app.calPopulation2("Invalid");
+
+        //Testing with real input
+        app.calPopulation2("Continent");
+    }
+
+
+
+
+    
 }
