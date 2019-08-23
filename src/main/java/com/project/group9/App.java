@@ -1,18 +1,11 @@
 package com.project.group9;
 //These following section will include libraries for the app
-import javax.swing.*;
-import javax.swing.plaf.IconUIResource;
-import java.awt.*;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.Scanner;
-import java.io.*;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.util.ArrayList;
 
@@ -41,18 +34,18 @@ public class App {
         {
             a.connect(args[0]);
         }
-        // Get Employee
+
         //World wo = a.getcity(1);
         // Display results
         //a.displaycity(wo);
 
+
+
+
         //Sorting city population from largest to smallest
         a.cityP();
-
         //all the countries sorted by population
         a.countryP();
-
-
         //countries sorted by continent
         a.countriesInCont();
         //Getting user inputs
@@ -180,7 +173,7 @@ public class App {
         }
     }
 
-    public World getcity(int ID)
+    public City getcity(int ID)
     {
         try
         {
@@ -197,12 +190,12 @@ public class App {
             // Check one is returned
             if (rset.next())
             {
-                World wo = new World();
-                wo.ID= rset.getInt("ID");
-                wo.Name = rset.getString("Name");
-                wo.CountryCode = rset.getString("CountryCode");
-                wo.District = rset.getString("District");
-                wo.Population = rset.getInt("Population");
+                City wo = new City();
+                wo.setID(rset.getInt("ID")) ;
+                wo.setName(rset.getString("Name")) ;
+                wo.setCountryCode(rset.getString("CountryCode"));
+                wo.setDistrict(rset.getString("District"));
+                wo.setPopulation(rset.getInt("Population"));
 
                 return wo;
             }
@@ -238,6 +231,15 @@ public class App {
             int i =0;
             while (rset.next() && i<5)
             {
+
+                System.out.println("Find 1>>This the oop test section>>>>>>>>>>>>>>>>>");
+                City c=new City();
+                c.setID(rset.getInt("ID"));
+                c.setName(rset.getString("Name"));
+                c.setPopulation(rset.getInt("Population"));
+                System.out.println(c.toString());
+
+
                 int ID=rset.getInt("ID");
                 String Name=rset.getString("Name");
                 int Population=rset.getInt("Population");
@@ -257,17 +259,12 @@ public class App {
     }
 
 
-    public void displaycity(World wo)
+    public void displaycity(City wo)
     {
         if (wo != null)
         {
 
-            System.out.println(
-                    wo.ID + " "
-                            + wo.Name + " "
-                            + wo.CountryCode + "\n"
-                            + wo.District + "\n"
-                            + wo.Population + "\n");
+            System.out.println(wo.toString());
         }
     }
 
