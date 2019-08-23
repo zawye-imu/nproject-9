@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY ./target/nproject-9.jar /tmp
+COPY ./target/group9.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "nproject-9.jar", "db:3306"]
+ENTRYPOINT ["java", "-jar", "group9.jar", "db:3306"]
