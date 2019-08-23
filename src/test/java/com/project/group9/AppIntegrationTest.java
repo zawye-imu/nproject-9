@@ -26,4 +26,9 @@ public class AppIntegrationTest
         assertEquals(5,5);
 
     }
+    @Test
+    void testDisconnect()
+    {
+        app.disconnect();
+    }
 }
