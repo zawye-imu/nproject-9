@@ -294,6 +294,15 @@ public class App {
 
             while (rset.next() && i<5)
             {
+
+                //This is the OOP output section
+                Country co=new Country();
+                co.setCode(rset.getString("Code"));
+                co.setName(rset.getString("Name"));
+                co.setPopulation(rset.getInt("Population"));
+                System.out.println(co.toString());
+
+
                 String Code=rset.getString("Code");
                 String Name=rset.getString("Name");
                 int Population=rset.getInt("Population");

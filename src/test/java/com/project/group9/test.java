@@ -16,6 +16,7 @@ public class test
     static void init()
     {
         app = new App();
+        app.connect("localhost:33060");
     }
     @Test
     void TestCalPopulationtoNull()
@@ -44,17 +45,22 @@ public class test
     @Test
     void functionCalls()
     {
+
         app.cityP();
         app.citiesInDistrict();
         app.citiesInCountry();
         app.citiesInCont();
         app.countriesInRegion();
+
+        //Countries function test
         app.countryP();
+
         app.countriesInRegion();
         app.countriesInCont();
         app.capitalContinent();
         app.capitalRegion();
         app.capitalP();
+
     }
 
 
