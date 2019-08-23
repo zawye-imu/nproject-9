@@ -17,6 +17,7 @@ public class test
     {
         app = new App();
         app.connect("localhost:33060");
+
     }
     @Test
     void TestCalPopulationtoNull()
@@ -41,15 +42,22 @@ public class test
 
         //Testing with real input
         app.calPopulation2("Continent");
+
     }
     @Test
     void functionCalls()
     {
 
+        //Getting cities
+        City c=app.getcity(1);
+        app.displaycity(c);
+
         app.cityP();
         app.citiesInDistrict();
         app.citiesInCountry();
         app.citiesInCont();
+        app.citiesInRegion();
+
         app.countriesInRegion();
 
         //Countries function test
@@ -125,6 +133,8 @@ public class test
 
         //Test string output
         co.toString();
+
+
 
     }
 
