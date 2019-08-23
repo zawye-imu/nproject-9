@@ -41,6 +41,22 @@ public class test
         //Testing with real input
         app.calPopulation2("Continent");
     }
+    @Test
+    void functionCalls()
+    {
+        app.cityP();
+        app.citiesInDistrict();
+        app.citiesInCountry();
+        app.citiesInCont();
+        app.countriesInRegion();
+        app.countryP();
+        app.countriesInRegion();
+        app.countriesInCont();
+        app.capitalContinent();
+        app.capitalRegion();
+        app.capitalP();
+    }
+
 
 
 
