@@ -137,6 +137,14 @@ public class test
 
 
     }
+    @Test
+    void LanguageReportTest()
+    {
+
+        app.LanguageReport();
+
+    }
+
 
 
 
