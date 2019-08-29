@@ -39,20 +39,20 @@ public class App {
 
     @BeforeAll
 
+
     public static void main(String[] args)
     {
         // Create new Application
         App a = new App();
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< World cities, countries and population report >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-        //test
-        //System.out.println("This is new");
+
 
         // Connect to database
-        //a.connect();
+
         if (args.length < 1)
         {
-            a.connect("localhost:3306");
+            a.connect("localhost:33060");
         }
         else
         {
@@ -64,38 +64,36 @@ public class App {
 
 
 
-        //Sorting city population from largest to smallest
-        a.cityP();
+
 
 
         //all the countries sorted by population
         a.countryP();
         //countries sorted by continent
         a.countriesInCont();
-        //Getting user inputs
-        //a.countryP_input();
         //countries sorted by region
-
         a.countriesInRegion();
 
+
+        //Sorting city population from largest to smallest
+        a.cityP();
         //cities sorted by continent
         a.citiesInCont();
         //cities sorted by region
         a.citiesInRegion();
         //cities in the country sorted by population
         a.citiesInCountry();
-
         //cities in each district
         a.citiesInDistrict();
 
         //capital cities in the world sorted by population
         a.capitalP();
-
         //capital cities in each continent
         a.capitalContinent();
-
         //capital cities in each region
         a.capitalRegion();
+
+
 
         //Population report for each continent
         a.calPopulation("Continent");
@@ -103,22 +101,20 @@ public class App {
         a.calPopulation("Region");
         //Population report for each country
         a.calPopulation("Name");
-
         //population report for each district
         a.calPopulation2("District");
         //Population report for each city
         a.calPopulation2("Name");
 
-        //getting world population
-//        a.worldPop();
+
 
         //Getting the language report
         a.LanguageReport();
 
-        //Country report
-        //Country c=new Country();
-        //c=a.coreport("Japan");
-        //a.displayco(c);
+
+
+        //Getting Input from the user section
+
 
 
 
@@ -195,42 +191,7 @@ public class App {
         }
     }
 
-    public City getcity(int ID)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT ID, Name, CountryCode, District, Population "
-                            + "FROM city "
-                            + "WHERE ID = " + ID;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City wo = new City();
-                wo.setID(rset.getInt("ID")) ;
-                wo.setName(rset.getString("Name")) ;
-                wo.setCountryCode(rset.getString("CountryCode"));
-                wo.setDistrict(rset.getString("District"));
-                wo.setPopulation(rset.getInt("Population"));
 
-                return wo;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
 
     public void cityP()
     {
@@ -304,14 +265,6 @@ public class App {
     }
 
 
-    public void displaycity(City wo)
-    {
-        if (wo != null)
-        {
-
-            System.out.println(wo.toString());
-        }
-    }
 
 
 
@@ -366,93 +319,6 @@ public class App {
         }
     }
 
-//    public void countryP_input()
-//    {
-//        try
-//        {
-//            // Create an SQL statement
-//            Statement stmt = con.createStatement();
-//            // Create string for SQL statement
-//            String strSelect = "SELECT * FROM country ORDER BY Population DESC";
-//            // Execute SQL statement
-//            ResultSet rset = stmt.executeQuery(strSelect);
-//
-//            //testing
-//            System.out.println(rset);
-//
-//
-//
-//            System.out.println("+++Countries in the world from largest to smallest population+++");
-//            //getting user input
-//            System.out.println("How many countries?");
-//            String text=System.console().readLine();
-//            int n=Integer.parseInt(text);
-//
-//            //The i variable will be defined by the user
-//            int i=0;
-//            while (rset.next() && i<n)
-//            {
-//                String Code=rset.getString("Code");
-//                String Name=rset.getString("Name");
-//                int Population=rset.getInt("Population");
-//                System.out.println(" "+Name+"------------->"+Population);
-//                i++;
-//
-//
-//            }
-//
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//            System.out.println("Failed to get countries details");
-//            System.out.println(e);
-//        }
-//    }
-//
-//
-//
-//
-//    public void cityP_input(int n)
-//    {
-//        try
-//        {
-//            // Create an SQL statement
-//            Statement stmt = con.createStatement();
-//            // Create string for SQL statement
-//            String strSelect = "SELECT * FROM city ORDER BY Population DESC";
-//            // Execute SQL statement
-//            ResultSet rset = stmt.executeQuery(strSelect);
-//
-//            //testing
-//            System.out.println(rset);
-//
-//
-//            // Return new employee if valid.
-//            // Check one is returned
-//            System.out.println("+++Cities in the world from largest to smallest population+++");
-//
-//
-//            int i =0;
-//            while (rset.next() && i<n)
-//            {
-//                int ID=rset.getInt("ID");
-//                String Name=rset.getString("Name");
-//                int Population=rset.getInt("Population");
-//                System.out.println(" "+Name+"--------------------"+Population);
-//                i++;
-//
-//
-//            }
-//
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println(e.getMessage());
-//            System.out.println("Failed to get city details");
-//            System.out.println(e);
-//        }
-//    }
 
 
     public void countriesInCont()
@@ -1119,25 +985,7 @@ public class App {
         }
 
     }
-//    public void worldPop()
-//    {
-//        try {
-//            //getting population fof the world
-//            Statement stmt4 = con.createStatement();
-//            String strSelect4 = "SELECT Population from country";
-//            ResultSet rset4 = stmt4.executeQuery(strSelect4);
-//            Integer wpop = 0;
-//            while (rset4.next()) {
-//                wpop = wpop + rset4.getInt(1);
-//            }
-//            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++Population of the world+++++++++++++++++++++++++++++++++++++++++++++++++");
-//            System.out.println("\nThe population of the world is " + wpop);
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println("Error in getting world population\n"+"Error:"+e);
-//        }
-//    }
+
 
     //calculating the population of city and district
     public void calPopulation2(String s)
@@ -1281,52 +1129,6 @@ public class App {
 
     }
 
-
-    //Country report on country
-    public Country coreport(String s)
-    {
-        Country c=new Country();
-        try {
-            //Getting the population of the world
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect = "SELECT country.Name,country.Population,city.Name,country.Code,country.Continent,country.Region FROM country INNER JOIN city on country.Capital=city.ID where country.Name='"+s+"'";
-
-
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            while (rset.next())
-            {
-                c.setCode(rset.getString("Code"));
-                c.setName(rset.getString("Name"));
-                c.setContinent(rset.getString("Continent"));
-                c.setRegion(rset.getString("Region"));
-                c.setPopulation(rset.getInt("Population"));
-                c.setCapitali(rset.getString(3));
-
-
-            }
-        }
-        catch (Exception E){
-            System.out.println("Error generating country report. \n Error:"+E);
-
-        }
-
-
-        return c;
-    }
-
-    //Display country
-    public void displayco(Country co)
-    {
-        System.out.println("Code:"+co.getCode());
-        System.out.println("Name:"+co.getName());
-        System.out.println("Continent:"+co.getContinent());
-        System.out.println("Region:"+co.getRegion());
-        System.out.println("Population:"+co.getPopulation());
-        System.out.println("Capital:"+co.getCapitali());
-
-    }
 
 
 

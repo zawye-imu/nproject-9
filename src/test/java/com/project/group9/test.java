@@ -48,26 +48,15 @@ public class test
     void functionCalls()
     {
 
-        //Getting cities
-        City c=app.getcity(1);
-        app.displaycity(c);
+        //Testing if the whole app works
+        String test[]={};
+        app.main(test);
 
-        app.cityP();
-        app.citiesInDistrict();
-        app.citiesInCountry();
-        app.citiesInCont();
-        app.citiesInRegion();
 
-        app.countriesInRegion();
 
-        //Countries function test
-        app.countryP();
 
-        app.countriesInRegion();
-        app.countriesInCont();
-        app.capitalContinent();
-        app.capitalRegion();
-        app.capitalP();
+
+
 
     }
     @Test
@@ -138,12 +127,21 @@ public class test
 
     }
     @Test
-    void LanguageReportTest()
+    void TestingLanguae()
     {
+        CountryLanguage cl=new CountryLanguage();
+        cl.setIsOfficial("T");
+        cl.setLanguage("Test");
+        cl.setPercentage(5.0f);
 
-        app.LanguageReport();
+        cl.getIsOfficial();
+        cl.getLanguage();
+        cl.getPercentage();
 
+        //Testing to string
+        cl.toString();
     }
+
 
 
 
