@@ -16,7 +16,7 @@ public class AppIntegrationTest
     static void init()
     {
         app = new App();
-        app.connect("localhost:33060");
+//        app.connect("localhost:33060");
     }
 
     @Test
@@ -25,5 +25,10 @@ public class AppIntegrationTest
         app.cityP();
         assertEquals(5,5);
 
+    }
+    @Test
+    void testDisconnect()
+    {
+        app.disconnect();
     }
 }

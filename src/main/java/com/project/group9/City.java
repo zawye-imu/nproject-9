@@ -17,6 +17,7 @@ public class City {
      */
     private String CountryCode;
 
+
     /**
      * District
      */
