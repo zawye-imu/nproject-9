@@ -67,9 +67,10 @@ public class Country {
     private String HeadOfState;
 
     /**
-     * Capital
+     * Capital (with both string and integer)
      */
     private Integer Capital;
+    private String Capitali;
 
     /**
      * Code2
@@ -215,5 +216,13 @@ public class Country {
                 ", Capital=" + Capital +
                 ", Code2='" + Code2 + '\'' +
                 '}';
+    }
+
+    public String getCapitali() {
+        return Capitali;
+    }
+
+    public void setCapitali(String capitali) {
+        Capitali = capitali;
     }
 }
