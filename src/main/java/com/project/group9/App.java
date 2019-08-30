@@ -68,52 +68,58 @@ public class App {
 
 
         //all the countries sorted by population
-        a.countryP();
+        a.countryP("all");
         //countries sorted by continent
-        a.countriesInCont();
+        //a.countriesInCont();
         //countries sorted by region
-        a.countriesInRegion();
+        //a.countriesInRegion();
 
 
         //Sorting city population from largest to smallest
-        a.cityP();
+//        a.cityP();
         //cities sorted by continent
-        a.citiesInCont();
+//        a.citiesInCont();
         //cities sorted by region
-        a.citiesInRegion();
+//        a.citiesInRegion();
         //cities in the country sorted by population
-        a.citiesInCountry();
+//        a.citiesInCountry();
         //cities in each district
-        a.citiesInDistrict();
+//        a.citiesInDistrict();
 
         //capital cities in the world sorted by population
-        a.capitalP();
+//        a.capitalP();
         //capital cities in each continent
-        a.capitalContinent();
+//        a.capitalContinent();
         //capital cities in each region
-        a.capitalRegion();
+//        a.capitalRegion();
 
 
 
-        //Population report for each continent
-        a.calPopulation("Continent");
-        //Population report for each region
-        a.calPopulation("Region");
-        //Population report for each country
-        a.calPopulation("Name");
-        //population report for each district
-        a.calPopulation2("District");
-        //Population report for each city
-        a.calPopulation2("Name");
+//        Population report for each continent
+//        a.calPopulation("Continent");
+//        Population report for each region
+//        a.calPopulation("Region");
+//        Population report for each country
+//        a.calPopulation("Name");
+
+//        population report for each district
+//        a.calPopulation2("District");
+//        Population report for each city
+//        a.calPopulation2("Name");
 
 
 
         //Getting the language report
-        a.LanguageReport();
+//        a.LanguageReport();
 
 
 
         //Getting Input from the user section
+
+        //Getting countires with user input
+        a.countryP("input");
+
+
 
 
 
@@ -268,10 +274,12 @@ public class App {
 
 
 
-    public void countryP()
+    public void countryP(String stop)
     {
+
         try
         {
+
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
@@ -279,8 +287,7 @@ public class App {
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            //testing
-            System.out.println(rset);
+
 
 
 
@@ -288,27 +295,57 @@ public class App {
 
 
             //Delete limitation after the code is finished
-            int i =0;
 
-            while (rset.next() && i<5)
+            if(stop.toLowerCase()=="all")
             {
+                //If the user input is 0 show all countries
 
-                //This is the OOP output section
-                Country co=new Country();
-                co.setCode(rset.getString("Code"));
-                co.setName(rset.getString("Name"));
-                co.setPopulation(rset.getInt("Population"));
-                co.setContinent(rset.getString("Continent"));
-                co.setRegion(rset.getString("Region"));
-                co.setCapitali(rset.getString(3));
+                while (rset.next())
+                {
 
-                //Printing section
-                System.out.println("Code: "+co.getCode()+"\nName: "+co.getName()+"\nPopulation: "+co.getPopulation()+"\nContinent: "+co.getContinent()+"\nRegion: "+co.getRegion()+"\nCapital: "+co.getCapitali()+"\n\n\n");
+                    //This is the OOP output section
+                    Country co=new Country();
+                    co.setCode(rset.getString("Code"));
+                    co.setName(rset.getString("Name"));
+                    co.setPopulation(rset.getInt("Population"));
+                    co.setContinent(rset.getString("Continent"));
+                    co.setRegion(rset.getString("Region"));
+                    co.setCapitali(rset.getString(3));
 
-                i++;
+                    //Printing section
+                    System.out.println("Code: "+co.getCode()+"\nName: "+co.getName()+"\nPopulation: "+co.getPopulation()+"\nContinent: "+co.getContinent()+"\nRegion: "+co.getRegion()+"\nCapital: "+co.getCapitali()+"\n\n\n");
 
 
+                }
             }
+            else
+            {
+                int i=0;
+                Scanner in = new Scanner(System.in);
+                System.out.print("Enter the number of countries....");
+                int s = in.nextInt();
+                while (rset.next() && i<s)
+                {
+
+                    //This is the OOP output section
+                    Country co=new Country();
+                    co.setCode(rset.getString("Code"));
+                    co.setName(rset.getString("Name"));
+                    co.setPopulation(rset.getInt("Population"));
+                    co.setContinent(rset.getString("Continent"));
+                    co.setRegion(rset.getString("Region"));
+                    co.setCapitali(rset.getString(3));
+
+                    //Printing section
+                    System.out.println("Code: "+co.getCode()+"\nName: "+co.getName()+"\nPopulation: "+co.getPopulation()+"\nContinent: "+co.getContinent()+"\nRegion: "+co.getRegion()+"\nCapital: "+co.getCapitali()+"\n\n\n");
+
+                    i++;
+                }
+            }
+
+
+
+
 
         }
         catch (Exception e)
@@ -952,6 +989,8 @@ public class App {
 
 
 
+
+
                 //getting cities in this s
 
                 Statement stmt2 = con.createStatement();
@@ -969,6 +1008,11 @@ public class App {
                 System.out.println("Population in cities of "+ct+" ="+cpop);
                 float npop=pop-cpop;
                 System.out.println("People not living in cities of "+ct+" ="+npop);
+
+
+                //Setting the variables back to zero
+                cpop=0;
+                pop=0;
 
 
 
@@ -1008,7 +1052,8 @@ public class App {
 
             System.out.println("\n\n++++++++++++++++++++++++++++++ Population in city"+s+"s +++++++++++++++++++++++++++++\n");
 
-            while (e.hasMoreElements()) {
+            while (e.hasMoreElements())
+            {
                 String ct=e.nextElement();
                 // Create an SQL statement
                 Statement stmt = con.createStatement();
@@ -1024,6 +1069,7 @@ public class App {
 
             }
             System.out.println("The population in "+ct+" is "+pop);
+                pop=0;
             }
 
         }
@@ -1103,7 +1149,7 @@ public class App {
                     pop=rset.getInt(2);
                     per=rset.getFloat(1);
 
-                    noofpeople =  (noofpeople + (per * (pop/ 100)));
+                    noofpeople =  noofpeople + ((per/100) * pop);
                 }
 
 
@@ -1118,16 +1164,13 @@ public class App {
             double per=(100/popworld)*noofpeople;
             System.out.println("The percentage of people who speaks this language in the world is "+per);
 
-
-
-
-
-
+            noofpeople=0;
 
         }
 
 
     }
+
 
 
 
