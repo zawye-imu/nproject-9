@@ -51,13 +51,6 @@ public class test
         //Testing if the whole app works
         String test[]={};
         app.main(test);
-
-
-
-
-
-
-
     }
     @Test
     void TestingClassCityWorks()
@@ -142,13 +135,4 @@ public class test
         cl.toString();
     }
 
-
-
-
-
-
-
-
-
-    
 }
