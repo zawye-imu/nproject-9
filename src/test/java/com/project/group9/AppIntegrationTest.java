@@ -27,13 +27,6 @@ public class AppIntegrationTest
         app.main(test);
     }
     @Test
-    void testCityP()
-    {
-        app.cityP();
-        assertEquals(5,5);
-
-    }
-    @Test
     void testDisconnect()
     {
         app.disconnect();

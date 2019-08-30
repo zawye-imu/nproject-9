@@ -16,7 +16,7 @@ public class test
     static void init()
     {
         app = new App();
-        app.connect("localhost:33060");
+
 
     }
     @Test
@@ -112,7 +112,7 @@ public class test
 
     }
     @Test
-    void TestingLanguae()
+    void TestingLanguage()
     {
         CountryLanguage cl=new CountryLanguage();
         cl.setIsOfficial("T");
@@ -126,5 +126,12 @@ public class test
         //Testing to string
         cl.toString();
     }
+    @Test
+    void DatabaseTest()
+    {
+        //Testing the invalid input for database
+        app.connect("Invalid");
+    }
+
 
 }
