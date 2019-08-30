@@ -117,7 +117,7 @@ public class App {
         //Getting Input from the user section
 
         //Getting countires with user input
-        a.countryP("input");
+//        a.countryP("input");
 
 
 
