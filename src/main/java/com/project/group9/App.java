@@ -68,56 +68,56 @@ public class App {
 
 
         //all the countries sorted by population
-//        a.countryP("all");
+        a.countryP("all");
         //countries sorted by continent
-        //a.countriesInCont();
+        a.countriesInCont();
         //countries sorted by region
-        //a.countriesInRegion();
+        a.countriesInRegion();
 
 
         //Sorting city population from largest to smallest
-//        a.cityP();
+        a.cityP();
         //cities sorted by continent
-//        a.citiesInCont();
+        a.citiesInCont();
         //cities sorted by region
-//        a.citiesInRegion();
+        a.citiesInRegion();
         //cities in the country sorted by population
-//        a.citiesInCountry();
+        a.citiesInCountry();
         //cities in each district
-//        a.citiesInDistrict();
+        a.citiesInDistrict();
 
         //capital cities in the world sorted by population
-//        a.capitalP();
+        a.capitalP();
         //capital cities in each continent
-//        a.capitalContinent();
+        a.capitalContinent();
         //capital cities in each region
-//        a.capitalRegion();
+        a.capitalRegion();
 
 
 
 //        Population report for each continent
-//        a.calPopulation("Continent");
+        a.calPopulation("Continent");
 //        Population report for each region
-//        a.calPopulation("Region");
+        a.calPopulation("Region");
 //        Population report for each country
-//        a.calPopulation("Name");
+        a.calPopulation("Name");
 
 //        population report for each district
-//        a.calPopulation2("District");
+        a.calPopulation2("District");
 //        Population report for each city
-//        a.calPopulation2("Name");
+        a.calPopulation2("Name");
 
 
 
         //Getting the language report
-//        a.LanguageReport();
+       a.LanguageReport();
 
 
 
         //Getting Input from the user section
 
         //Getting countires with user input
-//        a.countryP("input");
+        a.countryP("input");
 
 
 
