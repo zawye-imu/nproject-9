@@ -45,14 +45,6 @@ public class test
 
     }
     @Test
-    void functionCalls()
-    {
-
-        //Testing if the whole app works
-        String test[]={};
-        app.main(test);
-    }
-    @Test
     void TestingClassCityWorks()
     {
         City c=new City();
