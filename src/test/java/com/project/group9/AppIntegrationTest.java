@@ -14,12 +14,10 @@ public class AppIntegrationTest
         app.connect("localhost:33060");
     }
     @Test
-    void functionCalls()
+    void testingInvalidLocation()
     {
-
-        //Testing if the whole app works
-        String test[]={};
-        app.main(test);
+        //Testing the invalid input for database
+        app.connect("localhost:20001");
     }
     @Test
     void testDisconnect()

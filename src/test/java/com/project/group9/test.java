@@ -3,6 +3,10 @@ package com.project.group9;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.nio.ByteBuffer;
+import java.util.Scanner;
+
 public class test
 {
     static App app;
@@ -123,11 +127,46 @@ public class test
         cl.toString();
     }
     @Test
-    void DatabaseTest()
-    {
-        //Testing the invalid input for database
-        app.connect("Invalid");
+    void functionCalls(){
+
+        app.countryP("all");
+        app.countriesInCont("all");
+        app.countriesInRegion("all");
+        app.cityP("all");
+        app.citiesInCont("all");
+        app.citiesInRegion("all");
+        app.citiesInCountry("all");
+        app.citiesInDistrict("all");
+        app.capitalP("all");
+        app.capitalContinent("all");
+        app.capitalRegion("all");
+        app.calPopulation("Continent");
+        app.calPopulation("Region");
+        app.calPopulation("Name");
+        app.calPopulation2("District");
+        app.calPopulation2("Name");
+        app.LanguageReport();
+
+        int data = 2;
+        byte[] bytes = ByteBuffer.allocate(4).putInt(data).array();
+        System.setIn(new ByteArrayInputStream(bytes));
+        Scanner scanner = new Scanner(System.in);
+        app.countryP("input");
+
+
+
+        app.countriesInCont("input");
+        app.countriesInRegion("input");
+        app.cityP("input");
+        app.citiesInCont("input");
+        app.citiesInRegion("input");
+        app.citiesInCountry("input");
+        app.citiesInDistrict("input");
+        app.capitalP("input");
+        app.capitalContinent("input");
+        app.capitalRegion("input");
     }
+
 
 
 }
