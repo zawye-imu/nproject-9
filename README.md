@@ -15,7 +15,7 @@ DevOps group project (Group 9).
 - Release [![Releases](https://img.shields.io/github/release/zawye-imu/nproject-9/all.svg?style=flat-square)](https://github.com/zawye-imu/nproject-9/releases)
 - Coverage[![codecov](https://codecov.io/gh/zawye-imu/nproject-9/branch/master/graph/badge.svg)](https://codecov.io/gh/zawye-imu/nproject-9)
 
-## Features
+## Feature Checklist
 
 - Total required reports = 32
 - Total generated reports = 32
