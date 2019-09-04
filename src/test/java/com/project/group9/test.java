@@ -3,12 +3,6 @@ package com.project.group9;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.StringBufferInputStream;
-import java.nio.ByteBuffer;
-import java.util.Scanner;
-
 public class test
 {
     static App app;
@@ -22,7 +16,7 @@ public class test
 
     }
     @Test
-    void TestCalPopulationtoNull()
+    void testCalPopulationtoNull()
     {
         //Testing for null input
         app.calPopulation(null);
@@ -34,7 +28,7 @@ public class test
         app.calPopulation("Continent");
     }
     @Test
-    void TestCalPopulation2()
+    void testCalPopulation2()
     {
         //Testing for null input
         app.calPopulation2(null);
@@ -47,7 +41,7 @@ public class test
 
     }
     @Test
-    void TestingClassCityWorks()
+    void testingClassCityWorks()
     {
         City c=new City();
 
@@ -71,7 +65,7 @@ public class test
 
     }
     @Test
-    void TestingClassCountryWorks()
+    void testingClassCountryWorks()
     {
         Country co=new Country();
 
@@ -114,7 +108,7 @@ public class test
 
     }
     @Test
-    void TestingLanguage()
+    void testingLanguage()
     {
         CountryLanguage cl=new CountryLanguage();
         cl.setIsOfficial("T");
@@ -147,13 +141,10 @@ public class test
         app.calPopulation("Name");
         app.calPopulation2("District");
         app.calPopulation2("Name");
-        app.LanguageReport();
-
-
-
+        app.languageReport();
         app.countryP("input","test");
 
-
+        // Input test section
         app.countriesInCont("input","test");
         app.countriesInRegion("input","test");
         app.cityP("input","test");
