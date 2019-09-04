@@ -17,9 +17,9 @@ DevOps group project (Group 9).
 
 ## Features
 
-Total required reports = 32
-Total generated reports = 32
-Percentage of completion = 100%
+- Total required reports = 32
+- Total generated reports = 32
+- Percentage of completion = 100%
 
 | ID  | Name | Met | Screenshot |
 |-----|------|-----|------------|
