@@ -18,6 +18,7 @@ public class AppIntegrationTest
     {
         //Testing the invalid input for database
         app.connect("localhost:20001");
+        
     }
     @Test
     void testDisconnect()

@@ -22,16 +22,12 @@
  */
 package com.project.group9;
 //These following section will include libraries for the app
-import java.math.BigInteger;
-import java.rmi.server.ExportException;
-import java.sql.*;
-import java.util.*;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.BeforeAll;
 
-import java.util.ArrayList;
+import java.sql.*;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class App {
 
@@ -120,7 +116,7 @@ public class App {
                     a.calPopulation2("Name");
                     break;
                 case 17:
-                    a.LanguageReport();
+                    a.languageReport();
                     break;
                 case 18:
                     a.countryP("input","n");
@@ -242,14 +238,13 @@ public class App {
         System.exit(0);
     }
 
-    /**
-     * Connection to MySQL database.
-     */
+
+     // Connection to MySQL database.
+
     private Connection con;
 
-    /**
-     * Connect to the MySQL database.
-     */
+
+     //Connect to the MySQL database.
 
     public void connect(String location)
     {
@@ -655,6 +650,9 @@ public class App {
                     case 7:
                         ct="South America";
                         break;
+                    default:
+                        System.out.println("Please give the correct input!");
+                        break;
                 }
                 int s;
                 if(mode=="test")
@@ -966,6 +964,9 @@ public class App {
                         break;
                     case 7:
                         ct="South America";
+                        break;
+                    default:
+                        System.out.println("Please give the correct input");
                         break;
                 }
 
@@ -1451,15 +1452,15 @@ public class App {
             String strSelect = "SELECT DISTINCT District FROM city";
             ResultSet rset = stmt.executeQuery(strSelect);
             // Create an array list
-            ArrayList<String> District = new ArrayList<String>();
+            ArrayList<String> district = new ArrayList<String>();
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Cities in each District ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
             while (rset.next()) {
-                District.add(rset.getString(1));
+                district.add(rset.getString(1));
             }
             //Various country codes
 
 
-            List<String> newList = District.stream().distinct().collect(Collectors.toList());
+            List<String> newList = district.stream().distinct().collect(Collectors.toList());
 
 
             //Add elements to ArrayList
@@ -1683,7 +1684,8 @@ public class App {
                 {
                     s1=2;
 
-                }else {
+                }else
+                    {
                     Scanner in1 = new Scanner(System.in);
                     System.out.print("Choose continent ....");
                     s1=in1.nextInt();
@@ -1713,6 +1715,9 @@ public class App {
                         break;
                     case 7:
                         ct="South America";
+                        break;
+                    default:
+                        System.out.println("Please give the correct input.");
                         break;
                 }
 
@@ -1946,7 +1951,7 @@ public class App {
                 // Create string for SQL statement
                 String strSelect2 = "SELECT city.Name,city.Population FROM city INNER JOIN country on city.CountryCode=country.Code WHERE country."+s+"='"+ct+"'"+"ORDER BY Population DESC";
                 // Execute SQL statement
-                ResultSet rset2 = stmt.executeQuery(strSelect2);
+                ResultSet rset2 = stmt2.executeQuery(strSelect2);
 
                 //Getting the population of all the cities
                 float cpop=0;
@@ -2030,7 +2035,7 @@ public class App {
         }
 
     }
-    public void LanguageReport()
+    public void languageReport()
     {
         // Creating an Array list of languages
         ArrayList<String> continent = new ArrayList<String>();
