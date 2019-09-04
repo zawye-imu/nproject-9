@@ -72,7 +72,7 @@ public class App {
             //Case for options
             switch (s) {
                 case 1:
-                    a.countryP("all");
+                    a.countryP("all","n");
                     break;
                 case 2:
                     a.countriesInCont("all");
@@ -123,7 +123,7 @@ public class App {
                     a.LanguageReport();
                     break;
                 case 18:
-                    a.countryP("input");
+                    a.countryP("input","n");
                     break;
                 case 19:
                     a.countriesInCont("input");
@@ -388,9 +388,21 @@ public class App {
             }
             else
             {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of cities....");
-                int s = in.nextInt();
+                int s;
+
+                try {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of cities....");
+                     s = in.nextInt();
+                }
+                catch (Exception e)
+                {
+                    System.out.println("Cannot get user input.");
+                }
+                finally {
+                     s=2;
+                }
+
                 int i =0;
                 while (rset.next() && i<s)
                 {
@@ -452,7 +464,7 @@ public class App {
 
 
 
-    public void countryP(String stop)
+    public void countryP(String stop,String mode)
     {
 
         try
@@ -499,9 +511,24 @@ public class App {
             else
             {
                 int i=0;
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of countries....");
-                int s = in.nextInt();
+                int s;
+                if (mode=="test")
+                {
+                    s=2;
+                }
+                else
+                {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of cities....");
+                    s = in.nextInt();
+                }
+
+
+
+
+
+
+
                 while (rset.next() && i<s)
                 {
 
