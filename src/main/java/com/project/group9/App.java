@@ -75,34 +75,34 @@ public class App {
                     a.countryP("all","n");
                     break;
                 case 2:
-                    a.countriesInCont("all");
+                    a.countriesInCont("all","n");
                     break;
                 case 3:
-                    a.countriesInRegion("all");
+                    a.countriesInRegion("all","n");
                     break;
                 case 4:
-                    a.cityP("all");
+                    a.cityP("all","n");
                     break;
                 case 5:
-                    a.citiesInCont("all");
+                    a.citiesInCont("all","n");
                     break;
                 case 6:
-                    a.citiesInRegion("all");
+                    a.citiesInRegion("all","n");
                     break;
                 case 7:
-                    a.citiesInCountry("all");
+                    a.citiesInCountry("all","n");
                     break;
                 case 8:
-                    a.citiesInDistrict("all");
+                    a.citiesInDistrict("all","n");
                     break;
                 case 9:
-                    a.capitalP("all");
+                    a.capitalP("all","n");
                     break;
                 case 10:
-                    a.capitalContinent("all");
+                    a.capitalContinent("all","n");
                     break;
                 case 11:
-                    a.capitalRegion("all");
+                    a.capitalRegion("all","n");
                     break;
                 case 12:
                     a.calPopulation("Continent");
@@ -126,34 +126,34 @@ public class App {
                     a.countryP("input","n");
                     break;
                 case 19:
-                    a.countriesInCont("input");
+                    a.countriesInCont("input","n");
                     break;
                 case 20:
-                    a.countriesInRegion("input");
+                    a.countriesInRegion("input","n");
                     break;
                 case 21:
-                    a.cityP("input");
+                    a.cityP("input","n");
                     break;
                 case 22:
-                    a.citiesInCont("input");
+                    a.citiesInCont("input","n");
                     break;
                 case 23:
-                    a.citiesInRegion("input");
+                    a.citiesInRegion("input","n");
                     break;
                 case 24:
-                    a.citiesInCountry("input");
+                    a.citiesInCountry("input","n");
                     break;
                 case 25:
-                    a.citiesInDistrict("input");
+                    a.citiesInDistrict("input","n");
                     break;
                 case 26:
-                    a.capitalP("input");
+                    a.capitalP("input","n");
                     break;
                 case 27:
-                    a.capitalContinent("input");
+                    a.capitalContinent("input","n");
                     break;
                 case 28:
-                    a.capitalRegion("input");
+                    a.capitalRegion("input","n");
                     break;
                 default:
                     System.out.println("Please enter the correct input");
@@ -322,7 +322,7 @@ public class App {
 
 
 
-    public void cityP(String stop)
+    public void cityP(String stop,String mode)
     {
         try
         {
@@ -390,18 +390,17 @@ public class App {
             {
                 int s;
 
-                try {
+                if(mode=="test")
+                {
+                    s=2;
+                }
+                else {
                     Scanner in = new Scanner(System.in);
                     System.out.print("Enter the number of cities....");
-                     s = in.nextInt();
+                    s = in.nextInt();
                 }
-                catch (Exception e)
-                {
-                    System.out.println("Cannot get user input.");
-                }
-                finally {
-                     s=2;
-                }
+
+
 
                 int i =0;
                 while (rset.next() && i<s)
@@ -563,7 +562,7 @@ public class App {
 
 
 
-    public void countriesInCont(String stop)
+    public void countriesInCont(String stop,String mode)
     {
         try
         {
@@ -623,9 +622,15 @@ public class App {
                     System.out.println(no+" -> "+e.nextElement());
                     no++;
                 }
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose continent ....");
-                int s1=in1.nextInt();
+                int s1;
+                if(mode=="test") {
+                            s1=2;
+                }else {
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose continent ....");
+                    s1 = in1.nextInt();
+
+                }
                 String ct=null;
                 switch (s1)
                 {
@@ -651,9 +656,16 @@ public class App {
                         ct="South America";
                         break;
                 }
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of countries....");
-                int s = in.nextInt();
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of countries....");
+                     s = in.nextInt();
+                }
+
                 int i=0;
 
                     // Execute SQL statement
@@ -699,7 +711,7 @@ public class App {
 
 
 
-    public void countriesInRegion(String stop)
+    public void countriesInRegion(String stop,String mode)
     {
         try
         {
@@ -767,11 +779,17 @@ public class App {
                     System.out.println(no+" -> "+e.nextElement());
                     no++;
                 }
+                int s1;
+                if(mode=="test")
+                {
+                        s1=2;
+                }
+                else {
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose region ....");
+                    s1=in1.nextInt();
+                }
 
-
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose region ....");
-                int s1=in1.nextInt();
 
 
                 String ct=null;
@@ -790,10 +808,17 @@ public class App {
                     rno++;
                 }
 
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }
+                else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of countries....");
+                    s = in.nextInt();
+                }
 
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of countries....");
-                int s = in.nextInt();
                 int i=0;
 
                     // Execute SQL statement
@@ -836,7 +861,7 @@ public class App {
 
 
 
-    public void citiesInCont(String stop) {
+    public void citiesInCont(String stop,String mode) {
         try {
             // Create an array list
             ArrayList<String> continent = new ArrayList<String>();
@@ -907,9 +932,17 @@ public class App {
                     System.out.println(no+" -> "+e.nextElement());
                     no++;
                 }
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose continent ....");
-                int s1=in1.nextInt();
+                int s1;
+                if(mode=="test")
+                {
+                    s1=2;
+                }
+                else {
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose continent ....");
+                    s1=in1.nextInt();
+                }
+
                 String ct=null;
                 switch (s1)
                 {
@@ -945,10 +978,17 @@ public class App {
                     ResultSet rset1 = stmt1.executeQuery(strSelect);
 
                     System.out.println("+++Cities in " + ct + "+++");
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }
+                else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of cities....\n");
+                    s = in.nextInt();
+                }
 
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of cities....\n");
-                int s = in.nextInt();
                 int i=0;
                     while (rset1.next() && i<s) {
 
@@ -997,7 +1037,7 @@ public class App {
 
 
 
-    public void citiesInRegion(String stop) {
+    public void citiesInRegion(String stop,String mode) {
         try {
 
 
@@ -1076,10 +1116,17 @@ public class App {
                 no++;
             }
 
+            int s1;
+            if(mode=="test")
+            {
+                s1=2;
+            }
+            else {
+                Scanner in1 = new Scanner(System.in);
+                System.out.print("Choose region ....");
+                s1=in1.nextInt();
+            }
 
-            Scanner in1 = new Scanner(System.in);
-            System.out.print("Choose region ....");
-            int s1=in1.nextInt();
 
 
             String ct=null;
@@ -1100,10 +1147,18 @@ public class App {
                 rno++;
             }
 
+            int s;
+            if(mode=="test")
+            {
+                s=2;
+            }
+            else
+            {
+                Scanner in = new Scanner(System.in);
+                System.out.print("Enter the number of cities....");
+                s = in.nextInt();
+            }
 
-            Scanner in = new Scanner(System.in);
-            System.out.print("Enter the number of cities....");
-            int s = in.nextInt();
             int i=0;
 
 
@@ -1162,7 +1217,7 @@ public class App {
 
 
 
-    public void capitalP(String stop)
+    public void capitalP(String stop,String mode)
     {
         try
         {
@@ -1186,9 +1241,17 @@ public class App {
 
                 }
             }else {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of cities....");
-                int s = in.nextInt();
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }
+                else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of cities....");
+                    s = in.nextInt();
+                }
+
                 int i=0;
                 while (rset.next() && i<s)
                 {
@@ -1214,7 +1277,7 @@ public class App {
     }
 
 
-    public void citiesInCountry(String stop)
+    public void citiesInCountry(String stop,String mode)
     {
         try
         {
@@ -1297,10 +1360,15 @@ public class App {
                     }
                     no++;
                 }
+                int s1;
+                if(mode=="test") {
+                        s1=2;
+                }else {
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose country ....");
+                    s1 = in1.nextInt();
 
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose country ....");
-                int s1=in1.nextInt();
+                }
 
                 String ct=null;
                 int rno=1;
@@ -1316,11 +1384,16 @@ public class App {
                     e1.nextElement();
                     rno++;
                 }
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of cities....");
+                    s = in.nextInt();
+                }
 
-
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of cities....");
-                int s = in.nextInt();
                 int i=0;
 
 
@@ -1370,7 +1443,7 @@ public class App {
     }
 
 
-    public void citiesInDistrict(String stop) {
+    public void citiesInDistrict(String stop,String mode) {
         try {
             // Execute SQL statement
             Statement stmt = con.createStatement();
@@ -1451,10 +1524,17 @@ public class App {
                     System.out.println(no + " -> " + e.nextElement());
                     no++;
                 }
+                int s1;
+                if(mode=="test")
+                {
+                    s1=2;
+                }
+                else {
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose district ....");
+                    s1=in1.nextInt();
+                }
 
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose district ....");
-                int s1=in1.nextInt();
 
                 String ct=null;
                 int rno=1;
@@ -1471,10 +1551,17 @@ public class App {
                     rno++;
                 }
 
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }
+                else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of cities....");
+                    s = in.nextInt();
+                }
 
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of cities....");
-                int s = in.nextInt();
                 int i=0;
 
 
@@ -1535,7 +1622,7 @@ public class App {
 
 
     //capital cities in continent
-    public void capitalContinent(String stop)
+    public void capitalContinent(String stop,String mode)
     {
         try
         {
@@ -1591,9 +1678,18 @@ public class App {
                     System.out.println(no+" -> "+e.nextElement());
                     no++;
                 }
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose continent ....");
-                int s1=in1.nextInt();
+                int s1;
+                if(mode=="test")
+                {
+                    s1=2;
+
+                }else {
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose continent ....");
+                    s1=in1.nextInt();
+                }
+
+
                 String ct=null;
                 switch (s1)
                 {
@@ -1629,9 +1725,17 @@ public class App {
                     // Execute SQL statement
                     ResultSet rset = stmt.executeQuery(strSelect);
                     System.out.println("Capital cities in  " + ct);
-                    Scanner in = new Scanner(System.in);
+                    int s;
+                    if(mode=="test")
+                    {
+                        s=2;
+                    }else {
+                        Scanner in = new Scanner(System.in);
                         System.out.print("Enter the number of cities....");
-                    int s = in.nextInt();
+                        s = in.nextInt();
+
+                    }
+
                     int i=0;
                     while (rset.next() && i<s) {
 
@@ -1658,7 +1762,7 @@ public class App {
     }
 
     //capital cities in Region
-    public void capitalRegion(String stop)
+    public void capitalRegion(String stop,String mode)
     {
         try
         {
@@ -1712,9 +1816,17 @@ public class App {
                     System.out.println(no + " -> " + e.nextElement());
                     no++;
                 }
-                Scanner in1 = new Scanner(System.in);
-                System.out.print("Choose region ....");
-                int s1=in1.nextInt();
+
+                int s1;
+                if(mode=="test") {
+                        s1=2;
+                }
+                else {
+
+                    Scanner in1 = new Scanner(System.in);
+                    System.out.print("Choose region ....");
+                    s1 = in1.nextInt();
+                }
 
                 String ct=null;
                 int rno=1;
@@ -1731,10 +1843,17 @@ public class App {
                     rno++;
                 }
 
+                int s;
+                if(mode=="test")
+                {
+                    s=2;
+                }
+                else {
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Enter the number of capital cities....");
+                    s = in.nextInt();
+                }
 
-                Scanner in = new Scanner(System.in);
-                System.out.print("Enter the number of capital cities....");
-                int s = in.nextInt();
                 int i=0;
 
 

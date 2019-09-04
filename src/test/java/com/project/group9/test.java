@@ -131,39 +131,39 @@ public class test
     @Test
     void functionCalls(){
 
-//        app.countryP("all");
-//        app.countriesInCont("all");
-//        app.countriesInRegion("all");
-//        app.cityP("all");
-//        app.citiesInCont("all");
-//        app.citiesInRegion("all");
-//        app.citiesInCountry("all");
-//        app.citiesInDistrict("all");
-//        app.capitalP("all");
-//        app.capitalContinent("all");
-//        app.capitalRegion("all");
-//        app.calPopulation("Continent");
-//        app.calPopulation("Region");
-//        app.calPopulation("Name");
-//        app.calPopulation2("District");
-//        app.calPopulation2("Name");
-//        app.LanguageReport();
+        app.countryP("all","n");
+        app.countriesInCont("all","n");
+        app.countriesInRegion("all","n");
+        app.cityP("all","n");
+        app.citiesInCont("all","n");
+        app.citiesInRegion("all","n");
+        app.citiesInCountry("all","n");
+        app.citiesInDistrict("all","n");
+        app.capitalP("all","n");
+        app.capitalContinent("all","n");
+        app.capitalRegion("all","n");
+        app.calPopulation("Continent");
+        app.calPopulation("Region");
+        app.calPopulation("Name");
+        app.calPopulation2("District");
+        app.calPopulation2("Name");
+        app.LanguageReport();
 
 
 
         app.countryP("input","test");
 
 
-//        app.countriesInCont("input");
-//        app.countriesInRegion("input");
-//        app.cityP("input");
-//        app.citiesInCont("input");
-//        app.citiesInRegion("input");
-//        app.citiesInCountry("input");
-//        app.citiesInDistrict("input");
-//        app.capitalP("input");
-//        app.capitalContinent("input");
-//        app.capitalRegion("input");
+        app.countriesInCont("input","test");
+        app.countriesInRegion("input","test");
+        app.cityP("input","test");
+        app.citiesInCont("input","test");
+        app.citiesInRegion("input","test");
+        app.citiesInCountry("input","test");
+        app.citiesInDistrict("input","test");
+        app.capitalP("input","test");
+        app.capitalContinent("input","test");
+        app.capitalRegion("input","test");
     }
 
 
