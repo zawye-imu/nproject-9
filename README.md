@@ -48,12 +48,12 @@ DevOps group project (Group 9).
 | 23  | The population of people, people living in cities, and people not living in cities in each continent. | Yes | [Link](images/23.png) |
 | 24  | The population of people, people living in cities, and people not living in cities in each region. | Yes | [Link](images/24.png) |
 | 25  | The population of people, people living in cities, and people not living in cities in each country. | Yes | [Link](images/25.png) |
-| 26  | The population of the world. | Yes | [Link](images/26.png) |
+| 26  | The population of the world. | Yes | [Link](images/26.PNG) |
 | 27  | The population of a continent. | Yes | [Link](images/27.png) |
 | 28  | The population of a region. | Yes | [Link](images/28.png) |
 | 29  | The population of a country. | Yes | [Link](images/29.png) |
-| 30  | The population of a district. | Yes | [Link](images/30.png) |
-| 31  | The population of a city. | Yes | [Link](images/31.png) |
+| 30  | The population of a district. | Yes | [Link](images/30.PNG) |
+| 31  | The population of a city. | Yes | [Link](images/31.PNG) |
 | 32  | The number of people who speak Chinese, English, Hindi, Spanish or Arabic in the world. | Yes | [Link](images/32.png) |
 
 ## Contributions
