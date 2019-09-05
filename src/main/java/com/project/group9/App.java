@@ -2,22 +2,13 @@
  **********************************************************************
  * Copyright (c) 2019 Group9
  *
- * This software is provided by the contributors ``as is''
- * and any express or implied warranties, including, but not limited to,
- * the implied warranties of merchantability and fitness for a particular
- * purpose are disclaimed. In no event shall the author or contributors
- * be liable for any direct, indirect, incidental, special, exemplary,
- * or consequential damages (including, but not limited to, procurement
- * of substitute goods or services; loss of use, data, or profits; or
- * business interruption) however caused and on any theory of liability,
- * whether in contract, strict liability, or tort (including negligence
- * or otherwise) arising in any way out of the use of this software,
- * even if advised of the possibility of such damage.
+ * All rights reserved. Do not copy or adapt from this
+ * code without getting permission from us...
  *
- *   App: World Population System
+ * App: World Population System
  *
  * Author: Group9 - DevOPs
- *   Date: 23/8/2019
+ * Date: 23/8/2019
  **********************************************************************
  */
 package com.project.group9;
