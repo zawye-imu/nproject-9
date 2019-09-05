@@ -1702,9 +1702,9 @@ public class App {
             {
                 region.add(rset1.getString(1));
             }
-            System.out.println(region);
+
             List<String> newList = region.stream().distinct().collect(Collectors.toList());
-            System.out.println(newList);
+
             Enumeration<String> e = Collections.enumeration(newList);
             Enumeration<String> e1 = Collections.enumeration(newList);
 
@@ -2021,10 +2021,6 @@ public class App {
                 ResultSet rset = stmt.executeQuery(strSelect);
                 double pop;
                 double per;
-
-
-
-
                 while (rset.next())
                 {
                     pop=rset.getInt(2);
