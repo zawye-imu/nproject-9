@@ -1969,12 +1969,12 @@ public class App {
 
         //Add elements to ArrayList
         continent.add("Chinese");
-        continent.add("English");
         continent.add("Hindi");
         continent.add("Spanish");
+        continent.add("English");
         continent.add("Arabic");
 
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Language Report+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++Language Report++++++++++++++++++++++++++++++++++++++++++++++");
         Enumeration<String> e = Collections.enumeration(continent);
         double popworld=0;
          try {
@@ -2015,7 +2015,7 @@ public class App {
                 lan=e.nextElement();
                 Statement stmt = con.createStatement();
                 // Create string for SQL statement
-                String strSelect = "SELECT countrylanguage.Percentage,country.Population,countrylanguage.Language from country inner join countrylanguage on countrylanguage.CountryCode=country.Code where countrylanguage.Language='"+lan+"' ORDER BY Population DESC";
+                String strSelect = "SELECT countrylanguage.Percentage,country.Population,countrylanguage.Language from country inner join countrylanguage on countrylanguage.CountryCode=country.Code where countrylanguage.Language='"+lan+"' ORDER BY country.Population DESC";
 
                 // Execute SQL statement
                 ResultSet rset = stmt.executeQuery(strSelect);
