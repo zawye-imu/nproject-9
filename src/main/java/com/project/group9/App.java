@@ -29,6 +29,8 @@ import java.sql.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
+// Main class app of the program
 public class App {
 
     static App a;
@@ -36,7 +38,7 @@ public class App {
     @BeforeAll
 
 
-    public static void main(String[] args)
+    public static void main(final String[] args)
     {
         // Create new Application
         App a = new App();
@@ -151,6 +153,9 @@ public class App {
                 case 28:
                     a.capitalRegion("input","n");
                     break;
+                case 29:
+                    a.worldPop();
+                    break;
                 default:
                     System.out.println("Please enter the correct input");
                     break;
@@ -159,80 +164,6 @@ public class App {
             System.out.print("Enter the options to generate report.....Press 0 for exit");
             s = in.nextInt();
         }
-
-
-
-//        //all the countries sorted by population
-//        a.countryP("all");
-//        //countries sorted by continent
-//        a.countriesInCont("all");
-//        //countries sorted by region
-//        a.countriesInRegion("all");
-
-
-//        //Sorting city population from largest to smallest
-//        a.cityP("all");
-//        //cities sorted by continent
-//        a.citiesInCont("all");
-//        //cities sorted by region
-//        a.citiesInRegion("all");
-//        //cities in the country sorted by population
-//        a.citiesInCountry("all");
-//        //cities in each district
-//        a.citiesInDistrict("all");
-//
-//        //capital cities in the world sorted by population
-//        a.capitalP("all");
-//        //capital cities in each continent
-//        a.capitalContinent("all");
-//        //capital cities in each region
-//        a.capitalRegion("all");
-//
-//
-//
-////        Population report for each continent
-//        a.calPopulation("Continent");
-////        Population report for each region
-//        a.calPopulation("Region");
-////        Population report for each country
-//        a.calPopulation("Name");
-//
-////        population report for each district
-//        a.calPopulation2("District");
-////        Population report for each city
-//        a.calPopulation2("Name");
-//
-//
-//
-//        //Getting the language report
-//       a.LanguageReport();
-//
-//
-//
-//        //Getting Input from the user section
-//
-//        //Getting countries with user input
-//
-//        a.countryP("input");
-//        a.countriesInCont("input");
-//        a.countriesInRegion("input");
-//        a.cityP("input");
-//        a.citiesInCont("input");
-//        a.citiesInRegion("input");
-//        a.citiesInCountry("input");
-//        a.citiesInDistrict("input");
-//        a.capitalP("input");
-//        a.capitalContinent("input");
-//        a.capitalRegion("input");
-
-
-
-
-
-
-
-
-
 
         a.disconnect();
         System.exit(0);
@@ -246,7 +177,7 @@ public class App {
 
      //Connect to the MySQL database.
 
-    public void connect(String location)
+    public void connect(final String location)
     {
         try
         {
@@ -305,19 +236,19 @@ public class App {
 
     public void menu()
     {
-        System.out.println("\nChoose options below to generate respective reports!!!!!\n1...All the countries in the world.\n2...All the countries in a continent.\n3...All the countries in a region."
+        System.out.println("\n****************Choose options 1 to 28 below to generate respective reports!!!!!*********************\n1...All the countries in the world.\n2...All the countries in a continent.\n3...All the countries in a region."
         +"\n4...All the cities in the world.\n5...All the cities in continents.\n6...All the cities in regions.\n7...All the cities in countries.\n8...All the cities in districts.\n9...All the capital cities in the world."
         +"\n10...All the capital cities in continents.\n11...All the capital cities in regions.\n12...Population report(continent)\n13...Population report(Region)\n14...Population report(Country)"
         +"\n15...Population report(district)\n16...Population report(city)\n17...Language report\n18...Country report with input\n19...Country in continent report with input\n20...Country in region report with input"
         +"\n21...City report with input\n22...Cities in continent report with input\n23...Cities in region report with input\n24...Cities in country report with input\n25...Cities in district report with input"
-        +"\n26...Capital city report with input\n27...Capital city in continent with input\n28...Capital city in region with input\n");
+        +"\n26...Capital city report with input\n27...Capital city in continent with input\n28...Capital city in region with input\n29...World Population\n");
 
     }
 
 
 
 
-    public void cityP(String stop,String mode)
+    public void cityP(final String stop,final String mode)
     {
         try
         {
@@ -458,7 +389,7 @@ public class App {
 
 
 
-    public void countryP(String stop,String mode)
+    public void countryP(final String stop,final String mode)
     {
 
         try
@@ -557,12 +488,12 @@ public class App {
 
 
 
-    public void countriesInCont(String stop,String mode)
+    public void countriesInCont(final String stop,final String mode)
     {
         try
         {
             // Create an array list
-            ArrayList<String> continent = new ArrayList<String>();
+            ArrayList<String> continent = new ArrayList<>();
 
             //Add elements to ArrayList
             continent.add("North America");
@@ -709,7 +640,7 @@ public class App {
 
 
 
-    public void countriesInRegion(String stop,String mode)
+    public void countriesInRegion(final String stop,final String mode)
     {
         try
         {
@@ -718,7 +649,7 @@ public class App {
             String strSelect = "SELECT DISTINCT Region FROM country";
             ResultSet rset = stmt.executeQuery(strSelect);
             // Create an array list
-            ArrayList<String> region = new ArrayList<String>();
+            ArrayList<String> region = new ArrayList<>();
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Countries by each region ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
             while (rset.next())
             {
@@ -859,10 +790,10 @@ public class App {
 
 
 
-    public void citiesInCont(String stop,String mode) {
+    public void citiesInCont(final String stop,final String mode) {
         try {
             // Create an array list
-            ArrayList<String> continent = new ArrayList<String>();
+            ArrayList<String> continent = new ArrayList<>();
 
             //Add elements to ArrayList
             continent.add("North America");
@@ -1038,7 +969,7 @@ public class App {
 
 
 
-    public void citiesInRegion(String stop,String mode) {
+    public void citiesInRegion(final String stop,final String mode) {
         try {
 
 
@@ -1047,7 +978,7 @@ public class App {
             String strSelect = "SELECT DISTINCT Region FROM country";
             ResultSet rset = stmt.executeQuery(strSelect);
             // Create an array list
-            ArrayList<String> region = new ArrayList<String>();
+            ArrayList<String> region = new ArrayList<>();
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Cities by each region ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
             while (rset.next()) {
                 region.add(rset.getString(1));
@@ -1218,7 +1149,7 @@ public class App {
 
 
 
-    public void capitalP(String stop,String mode)
+    public void capitalP(final String stop,final String mode)
     {
         try
         {
@@ -1278,7 +1209,7 @@ public class App {
     }
 
 
-    public void citiesInCountry(String stop,String mode)
+    public void citiesInCountry(final String stop,final String mode)
     {
         try
         {
@@ -1288,7 +1219,7 @@ public class App {
             String strSelect = "SELECT DISTINCT Code FROM country";
             ResultSet rset = stmt.executeQuery(strSelect);
             // Create an array list
-            ArrayList<String> codes = new ArrayList<String>();
+            ArrayList<String> codes = new ArrayList<>();
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Cities in each Country ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
             while (rset.next())
             {
@@ -1444,7 +1375,7 @@ public class App {
     }
 
 
-    public void citiesInDistrict(String stop,String mode) {
+    public void citiesInDistrict(final String stop,final String mode) {
         try {
             // Execute SQL statement
             Statement stmt = con.createStatement();
@@ -1452,7 +1383,7 @@ public class App {
             String strSelect = "SELECT DISTINCT District FROM city";
             ResultSet rset = stmt.executeQuery(strSelect);
             // Create an array list
-            ArrayList<String> district = new ArrayList<String>();
+            ArrayList<String> district = new ArrayList<>();
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++ Cities in each District ++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
             while (rset.next()) {
                 district.add(rset.getString(1));
@@ -1623,13 +1554,13 @@ public class App {
 
 
     //capital cities in continent
-    public void capitalContinent(String stop,String mode)
+    public void capitalContinent(final String stop,final String mode)
     {
         try
         {
 
             // Create an array list of continents
-            ArrayList<String> continent = new ArrayList<String>();
+            ArrayList<String> continent = new ArrayList<>();
 
             //Add elements to ArrayList
             continent.add("North America");
@@ -1767,7 +1698,7 @@ public class App {
     }
 
     //capital cities in Region
-    public void capitalRegion(String stop,String mode)
+    public void capitalRegion(final String stop,final String mode)
     {
         try
         {
@@ -1775,7 +1706,7 @@ public class App {
             Statement stmt1 = con.createStatement();
             String strSelect1 = "SELECT DISTINCT Region FROM country";
             ResultSet rset1 = stmt1.executeQuery(strSelect1);
-            ArrayList<String> region = new ArrayList<String>();
+            ArrayList<String> region = new ArrayList<>();
             while (rset1.next())
             {
                 region.add(rset1.getString(1));
@@ -1904,14 +1835,14 @@ public class App {
     }
 
 
-    public void calPopulation(String s)
+    public void calPopulation(final String s)
     {
         try
         {
             Statement stmt1 = con.createStatement();
             String strSelect1 = "SELECT DISTINCT "+s+" FROM country";
             ResultSet rset1 = stmt1.executeQuery(strSelect1);
-            ArrayList<String> ls = new ArrayList<String>();
+            ArrayList<String> ls = new ArrayList<>();
             while (rset1.next())
             {
                 ls.add(rset1.getString(1));
@@ -1959,14 +1890,19 @@ public class App {
                 {
                     cpop=cpop+rset2.getInt(2);
                 }
-                System.out.println("Population in cities of "+ct+" ="+cpop);
+                System.out.println("Population in cities of "+ct+" ="+cpop+".");
+                System.out.println("The percentage is "+(100/pop)*cpop+".");
                 float npop=pop-cpop;
-                System.out.println("People not living in cities of "+ct+" ="+npop);
+                System.out.println("People not living in cities of "+ct+" ="+npop+".");
+                System.out.println("The percentage is "+(100/pop)*npop+".");
+
 
 
                 //Setting the variables back to zero
                 cpop=0;
                 pop=0;
+
+
 
 
 
@@ -1986,14 +1922,14 @@ public class App {
 
 
     //calculating the population of city and district
-    public void calPopulation2(String s)
+    public void calPopulation2(final String s)
     {
         try
         {
             Statement stmt1 = con.createStatement();
             String strSelect1 = "SELECT DISTINCT "+s+" FROM city";
             ResultSet rset1 = stmt1.executeQuery(strSelect1);
-            ArrayList<String> ls = new ArrayList<String>();
+            ArrayList<String> ls = new ArrayList<>();
 
             while (rset1.next())
             {
@@ -2004,7 +1940,7 @@ public class App {
 
             Enumeration<String> e = Collections.enumeration(newList);
 
-            System.out.println("\n\n++++++++++++++++++++++++++++++ Population in city"+s+"s +++++++++++++++++++++++++++++\n");
+            System.out.println("\n\n++++++++++++++++++++++++++++++ Population by city "+s+"s +++++++++++++++++++++++++++++\n");
 
             while (e.hasMoreElements())
             {
@@ -2038,7 +1974,7 @@ public class App {
     public void languageReport()
     {
         // Creating an Array list of languages
-        ArrayList<String> continent = new ArrayList<String>();
+        ArrayList<String> continent = new ArrayList<>();
 
         //Add elements to ArrayList
         continent.add("Chinese");
@@ -2109,9 +2045,9 @@ public class App {
 
 
             }
-            catch (Exception E)
+            catch (Exception e1)
             {
-                System.out.println("Failed to generate a country report.\n Error is:"+E);
+                System.out.println("Failed to generate a country report.\n Error is:"+e1);
             }
             //Print Section
             System.out.println("The number of people who speaks "+lan+" is "+noofpeople);
@@ -2124,6 +2060,31 @@ public class App {
 
 
     }
+
+
+
+    public void worldPop()
+    {
+        try {
+            double popworld=0;
+            //Getting the population of the world
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect = "select Population from country";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()) {
+                popworld += rset.getInt(1);
+            }
+            System.out.println("\n++++++++++++++++++++++++++++World Population Report+++++++++++++++++++++++++++++++");
+            System.out.println("The population of the world is "+popworld);
+        }catch (Exception e)
+        {
+            System.out.println("Error in getting world population. Error:"+e);
+        }
+    }
+
 
 
 

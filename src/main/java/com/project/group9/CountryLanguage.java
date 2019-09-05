@@ -9,7 +9,7 @@ public class CountryLanguage {
     public CountryLanguage() {
     }
 
-    public CountryLanguage(String language, String isOfficial, Float percentage) {
+    public CountryLanguage(final String language, final String isOfficial,final  Float percentage) {
         Language = language;
         IsOfficial = isOfficial;
         Percentage = percentage;
@@ -19,7 +19,7 @@ public class CountryLanguage {
         return Language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(final String language) {
         Language = language;
     }
 
@@ -27,7 +27,7 @@ public class CountryLanguage {
         return IsOfficial;
     }
 
-    public void setIsOfficial(String isOfficial) {
+    public void setIsOfficial(final String isOfficial) {
         IsOfficial = isOfficial;
     }
 
@@ -35,7 +35,7 @@ public class CountryLanguage {
         return Percentage;
     }
 
-    public void setPercentage(Float percentage) {
+    public void setPercentage(final Float percentage) {
         Percentage = percentage;
     }
 

@@ -89,7 +89,7 @@ public class Country {
         return Name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         Name = name;
     }
 
@@ -97,7 +97,7 @@ public class Country {
         return Continent;
     }
 
-    public void setContinent(String continent) {
+    public void setContinent(final String continent) {
         Continent = continent;
     }
 
@@ -105,7 +105,7 @@ public class Country {
         return Region;
     }
 
-    public void setRegion(String region) {
+    public void setRegion(final String region) {
         Region = region;
     }
 
@@ -113,7 +113,7 @@ public class Country {
         return SurfaceArea;
     }
 
-    public void setSurfaceArea(Float surfaceArea) {
+    public void setSurfaceArea(final Float surfaceArea) {
         SurfaceArea = surfaceArea;
     }
 
@@ -121,7 +121,7 @@ public class Country {
         return IndepYear;
     }
 
-    public void setIndepYear(Integer indepYear) {
+    public void setIndepYear(final Integer indepYear) {
         IndepYear = indepYear;
     }
 
@@ -129,7 +129,7 @@ public class Country {
         return Population;
     }
 
-    public void setPopulation(Integer population) {
+    public void setPopulation(final Integer population) {
         Population = population;
     }
 
@@ -137,7 +137,7 @@ public class Country {
         return LifeExpectancy;
     }
 
-    public void setLifeExpectancy(Float lifeExpectancy) {
+    public void setLifeExpectancy(final Float lifeExpectancy) {
         LifeExpectancy = lifeExpectancy;
     }
 
@@ -145,7 +145,7 @@ public class Country {
         return GNP;
     }
 
-    public void setGNP(Float GNP) {
+    public void setGNP(final Float GNP) {
         this.GNP = GNP;
     }
 
@@ -153,7 +153,7 @@ public class Country {
         return GNPOld;
     }
 
-    public void setGNPOld(Float GNPOld) {
+    public void setGNPOld(final Float GNPOld) {
         this.GNPOld = GNPOld;
     }
 
@@ -161,7 +161,7 @@ public class Country {
         return LocalName;
     }
 
-    public void setLocalName(String localName) {
+    public void setLocalName(final String localName) {
         LocalName = localName;
     }
 
@@ -169,7 +169,7 @@ public class Country {
         return GovernmentForm;
     }
 
-    public void setGovernmentForm(String governmentForm) {
+    public void setGovernmentForm(final String governmentForm) {
         GovernmentForm = governmentForm;
     }
 
@@ -177,7 +177,7 @@ public class Country {
         return HeadOfState;
     }
 
-    public void setHeadOfState(String headOfState) {
+    public void setHeadOfState(final String headOfState) {
         HeadOfState = headOfState;
     }
 
@@ -185,7 +185,7 @@ public class Country {
         return Capital;
     }
 
-    public void setCapital(Integer capital) {
+    public void setCapital(final Integer capital) {
         Capital = capital;
     }
 
@@ -193,7 +193,7 @@ public class Country {
         return Code2;
     }
 
-    public void setCode2(String code2) {
+    public void setCode2(final String code2) {
         Code2 = code2;
     }
 
@@ -222,7 +222,10 @@ public class Country {
         return Capitali;
     }
 
-    public void setCapitali(String capitali) {
+    public void setCapitali(final String capitali) {
         Capitali = capitali;
+    }
+
+    public Country() {
     }
 }

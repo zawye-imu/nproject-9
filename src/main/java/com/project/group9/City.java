@@ -32,7 +32,7 @@ public class City {
 
     }
 
-    public City(int ID, String name, String countryCode, String district, int population) {
+    public City(final int ID, final String name,final String countryCode,final String district,final int population) {
         this.ID = ID;
         Name = name;
         CountryCode = countryCode;
@@ -60,23 +60,23 @@ public class City {
         return Population;
     }
 
-    public void setID(int ID) {
+    public void setID(final int ID) {
         this.ID = ID;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         Name = name;
     }
 
-    public void setCountryCode(String countryCode) {
+    public void setCountryCode(final String countryCode) {
         CountryCode = countryCode;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict(final String district) {
         District = district;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(final int population) {
         Population = population;
     }
 

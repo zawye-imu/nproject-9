@@ -1,12 +1,15 @@
 package com.project.group9;
 
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+//Test class for unit testing
 public class test
 {
     static App app;
 
+    //init function to do previous work
     @BeforeAll
     static void init()
     {
@@ -15,6 +18,7 @@ public class test
 
 
     }
+    //Testing the population report functions
     @Test
     void testCalPopulationtoNull()
     {
@@ -26,7 +30,9 @@ public class test
 
         //Testing with real input
         app.calPopulation("Continent");
+
     }
+    //Testing various inputs for population report 2
     @Test
     void testCalPopulation2()
     {
@@ -40,6 +46,7 @@ public class test
         app.calPopulation2("Continent");
 
     }
+    //testing the city class
     @Test
     void testingClassCityWorks()
     {
@@ -59,11 +66,12 @@ public class test
         c.getID();
         c.getName();
         c.getPopulation();
-
-        c.toString();
+        City c1=new City(200,"Test1","Test1","Test1",2);
+        c1.toString();
 
 
     }
+    //Testing the country class
     @Test
     void testingClassCountryWorks()
     {
@@ -107,6 +115,7 @@ public class test
 
 
     }
+    //Testing the language class
     @Test
     void testingLanguage()
     {
@@ -118,13 +127,16 @@ public class test
         cl.getIsOfficial();
         cl.getLanguage();
         cl.getPercentage();
-
+        CountryLanguage cl1=new CountryLanguage("T","Test2",8.0f);
         //Testing to string
-        cl.toString();
+        cl1.toString();
     }
+    //Testing the functions in the program to check if they work correctly
     @Test
     void functionCalls(){
 
+
+        app.menu();
         app.countryP("all","n");
         app.countriesInCont("all","n");
         app.countriesInRegion("all","n");
