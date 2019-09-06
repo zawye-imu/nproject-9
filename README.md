@@ -58,10 +58,10 @@ DevOps group project (Group 9).
 
 ## Contributions
 
-|        Name       |     ID    | Review 1 | Review 2 | Review 3 | Review 4 |   Avg   |
-|------------------ |-----------|----------|----------|----------|----------|---------|
-| Zaw Ye Htet Naing | 40414297  | 20%      | 20%      | 40%      | 20%      | **25%** |
-| Linn Maung Thant  | 40401636  | 20%      | 20%      | 20%      | 40%      | **25%** |
-| Htoo Myat Aung    | 40416136  | 20%      | 40%      | 20%      | 20%      | **25%** |
-| Kyaw Min Khant    | 40414291  | 40%      | 20%      | 20%      | 20%      | **25%** |
+|                   | Code Review 1 | Code Review 2 | Code Review 3 | Code Review 4 | Final Deliverable |  Average    |
+|------------------ |---------------|---------------|---------------|---------------|-------------------|-------------|
+| Zaw Ye Htet Naing | 0.23          | 0.23          | 0.35          | 0.33          |  0.27             |  **28.2%**  |
+| Linn Maung Thant  | 0.15          | 0.26          | 0.25          | 0.20          |  0.33             |  **23.8%**  |
+| Htoo Myat Aung    | 0.20          | 0.31          | 0.25          | 0.22          |  0.17             |  **23%**    |
+| Kyaw Min Khant    | 0.42          | 0.20          | 0.15          | 0.25          |  0.23             |  **25%**    |
 
